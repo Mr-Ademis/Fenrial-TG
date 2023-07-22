@@ -16,19 +16,21 @@ def user(uid):
 
 
 def effects_player(uid):
+    """Выгрузка эффектов игрока из БД"""
     for item in bd.effects_player(uid):
         effect = EffectsPlayer(**item)
     return effect
 
 
 def mob(uid, enemies):
-    """Выгрузка данных 1 моба"""
+    """Выгрузка данных моба"""
     for item in bd.enemies(uid, enemies):
         mob = MobCombat(**item)
     return mob
 
 
 def enemies_effects(uid, enemies):
+    """Выгрузка эффектов моба из БД"""
     for item in bd.effects_enemies(uid, enemies):
         effect = EffectsMob(**item)
     return effect
